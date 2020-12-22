@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Kompas Trójkowy</title>
+		<style>
+	
+*
+{
+	background-color: ghostwhite;
+	color: black;
+	font-size: 28px;
+}	
+.pytanie
+{
+	text-align: center;
+	background-color: lightgrey;
+	padding: 25px;
+	margin: 100px;
+	border-radius: 25px;
+}
+
+.odpowiedz
+{
+	display: inline-block;
+	background-color: red;
+	color: white;
+	padding: 25px;
+	margin: 0px 25px 0px 25px;
+	border-radius: 20px;
+	transition: 250ms;
+}
+.odpowiedz:hover
+{
+	transform: scale(1.2) rotate(7deg);
+	background-color: darkred;
+	box-shadow: 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+		</style>
+		<script>
+var horizontal = 0;
+var vertical = 0;
+var jestodp = [];
+            var udzielone = 0;
+jestodp[0] = false;
+jestodp[1] = false;
+jestodp[2] = false;
+jestodp[3] = false;
+jestodp[4] = false;
+jestodp[5] = false;
+jestodp[6] = false;
+jestodp[7] = false;
+jestodp[8] = false;
+jestodp[9] = false;
+function add(e, p, o, n)
+{
+	if (!jestodp[n])
+	{
+		e.style.backgroundColor = "Green";
+if(p==0)
+    {
+    vertical +=o ;   
+    }
+if(p==1)
+    {
+    horizontal += o;    
+    }
+        window.scrollBy({
+        top: 300,
+        behavior: 'smooth'
+});
+    }
+	jestodp[n] = true;
+    udzielone ++;
+}
+    function end()
+            {
+                if(udzielone==10)
+                    {
+            var canvas = document.getElementById("chart");
+            if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#fbb9ba';
+  ctx.fillRect(0, 0, 200, 200);
+  ctx.fillStyle = '#93d8f9';
+  ctx.fillRect(200, 0, 200, 200);
+  ctx.fillStyle = '#c8e4bc';
+  ctx.fillRect(0, 200, 200, 200);
+  ctx.fillStyle = '#e0c6df';
+  ctx.fillRect(200, 200, 200, 200);
+  ctx.fillStyle = '#FFF';
+                ctx.beginPath();
+                ctx.moveTo(0,200);
+                ctx.lineTo(10,210);
+                ctx.moveTo(0,200);
+                ctx.lineTo(10,190);
+                ctx.moveTo(0,200);
+                ctx.lineTo(400,200);
+                ctx.lineTo(390,190);
+                ctx.moveTo(400,200);
+                ctx.lineTo(390,210);
+                
+                ctx.moveTo(200,0);
+                ctx.lineTo(210,10);
+                ctx.moveTo(200,0);
+                ctx.lineTo(190,10);
+                ctx.moveTo(200,0);
+                ctx.lineTo(200,400);
+                ctx.lineTo(190,390);
+                ctx.moveTo(200,400);
+                ctx.lineTo(210,390);
+                ctx.stroke();
+                ctx.closePath();
+
+                ctx.font = "28px serif";
+                ctx.fillText("Matematyczna",20,100);
+                ctx.fillText("Informatyczna",220,100);
+                ctx.fillText("Fizyczna",40,300);
+                ctx.fillText("Architektoniczna",205,300);
+                
+                var circle = new Path2D();
+                circle.arc(horizontal*20+200,vertical*20+200, 4, 0, 2 * Math.PI);
+                ctx.fillStyle="#F00";
+                ctx.fill(circle);
+            }
+
+  }
+          
+            }
+		
+		</script>
+	</head>
+	<body>
+        <div class="pytanie">
+			Trójkowy Kompas Klasowy
+		</div>
+		<div class="pytanie">
+			Lubisz się myć?
+			<br>
+			<br>
+            <div class="odpowiedz" onclick="add(this,0,-2,0)">Absolutnie nie</div>
+            <div class="odpowiedz" onclick="add(this,0,-1,0)">Nie</div>
+            <div class="odpowiedz" onclick="add(this,0,0,0)">Nie mam zdania</div>
+            <div class="odpowiedz" onclick="add(this,0,1,0)">Tak</div>
+            <div class="odpowiedz" onclick="add(this,0,2,0)">Absolutnie Tak</div>
+		</div>
+    		<div class="pytanie">
+			Wybory do samorządu były ustawione.
+			<br>
+			<br>
+            <div class="odpowiedz" onclick="add(this,1,-2,1)">Absolutnie nie</div>
+            <div class="odpowiedz" onclick="add(this,1,-1,1)">Nie</div>
+            <div class="odpowiedz" onclick="add(this,1,0,1)">Nie mam zdania</div>
+            <div class="odpowiedz" onclick="add(this,1,1,1)">Tak</div>
+            <div class="odpowiedz" onclick="add(this,1,2,1)">Absolutnie Tak</div>
+		</div>
+        		<div class="pytanie">
+			Szkoła powinna zdecydowanie kupić nowy sprzęt.
+			<br>
+			<br>
+            <div class="odpowiedz" onclick="add(this,1,-2,2)">Absolutnie nie</div>
+            <div class="odpowiedz" onclick="add(this,1,-1,2)">Nie</div>
+            <div class="odpowiedz" onclick="add(this,1,0,2)">Nie mam zdania</div>
+            <div class="odpowiedz" onclick="add(this,1,1,2)">Tak</div>
+            <div class="odpowiedz" onclick="add(this,1,2,2)">Absolutnie Tak</div>
+		</div>
+    		<div class="pytanie">
+			Za nie wietrzenie po sobie sali, powinno być zawieszenie w prawach ucznia.
+			<br>
+			<br>
+            <div class="odpowiedz" onclick="add(this,0,-2,3)">Absolutnie nie</div>
+            <div class="odpowiedz" onclick="add(this,0,-1,3)">Nie</div>
+            <div class="odpowiedz" onclick="add(this,0,0,3)">Nie mam zdania</div>
+            <div class="odpowiedz" onclick="add(this,0,1,3)">Tak</div>
+            <div class="odpowiedz" onclick="add(this,0,2,3)">Absolutnie Tak</div>
+		</div>
+        		<div class="pytanie">
+			E-lekcje są lepsze od zwykłych.
+			<br>
+			<br>
+            <div class="odpowiedz" onclick="add(this,1,-2,4)">Absolutnie nie</div>
+            <div class="odpowiedz" onclick="add(this,1,-1,4)">Nie</div>
+            <div class="odpowiedz" onclick="add(this,1,0,4)">Nie mam zdania</div>
+            <div class="odpowiedz" onclick="add(this,1,1,4)">Tak</div>
+            <div class="odpowiedz" onclick="add(this,1,2,4)">Absolutnie Tak</div>
+		</div>
+    		<div class="pytanie">
+			Prawda o basenie powinna zostać ujawniona!
+			<br>
+			<br>
+            <div class="odpowiedz" onclick="add(this,0,-2,5)">Absolutnie nie</div>
+            <div class="odpowiedz" onclick="add(this,0,-1,5)">Nie</div>
+            <div class="odpowiedz" onclick="add(this,0,0,5)">Nie mam zdania</div>
+            <div class="odpowiedz" onclick="add(this,0,1,5)">Tak</div>
+            <div class="odpowiedz" onclick="add(this,0,2,5)">Absolutnie Tak</div>
+		</div>
+        		<div class="pytanie">
+			A można?
+			<br>
+			<br>
+            <div class="odpowiedz" onclick="add(this,1,-2,6)">Absolutnie nie</div>
+            <div class="odpowiedz" onclick="add(this,1,-1,6)">Nie</div>
+            <div class="odpowiedz" onclick="add(this,1,0,6)">Nie mam zdania</div>
+            <div class="odpowiedz" onclick="add(this,1,1,6)">Tak</div>
+            <div class="odpowiedz" onclick="add(this,1,2,6)">Absolutnie Tak</div>
+		</div>
+    		<div class="pytanie">
+			Konkursy ponad szkołę?
+			<br>
+			<br>
+            <div class="odpowiedz" onclick="add(this,0,-2,7)">Absolutnie nie</div>
+            <div class="odpowiedz" onclick="add(this,0,-1,7)">Nie</div>
+            <div class="odpowiedz" onclick="add(this,0,0,7)">Nie mam zdania</div>
+            <div class="odpowiedz" onclick="add(this,0,1,7)">Tak</div>
+            <div class="odpowiedz" onclick="add(this,0,2,7)">Absolutnie Tak</div>
+		</div>
+        		<div class="pytanie">
+			A, poza tym, uważam że LO XIV powinno zostać zniszczone.
+			<br>
+			<br>
+            <div class="odpowiedz" onclick="add(this,1,-2,8)">Absolutnie nie</div>
+            <div class="odpowiedz" onclick="add(this,1,-1,8)">Nie</div>
+            <div class="odpowiedz" onclick="add(this,1,0,8)">Nie mam zdania</div>
+            <div class="odpowiedz" onclick="add(this,1,1,8)">Tak</div>
+            <div class="odpowiedz" onclick="add(this,1,2,8)">Absolutnie Tak</div>
+		</div>
+    		<div class="pytanie">
+			Nowy mural jest popsuty.
+			<br>
+			<br>
+            <div class="odpowiedz" onclick="add(this,0,-2,9)">Absolutnie nie</div>
+            <div class="odpowiedz" onclick="add(this,0,-1,9)">Nie</div>
+            <div class="odpowiedz" onclick="add(this,0,0,9)">Nie mam zdania</div>
+            <div class="odpowiedz" onclick="add(this,0,1,9)">Tak</div>
+            <div class="odpowiedz" onclick="add(this,0,2,9)">Absolutnie Tak</div>
+		</div>
+        <div class="odpowiedz" style="display: table; margin: 0 auto;" onclick="end()">Zakończ test</div>
+        <canvas id="chart" width="400" height="400" style="display: table; margin: 30px auto;"></canvas>
+        <h3>Wykonane przez Witolda Wojciechowskiego, klasa 2Bp.</h3>
+	</body>
+</html>
