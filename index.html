@@ -112,11 +112,15 @@ if(p==1)
                 ctx.stroke();
                 ctx.closePath();
 
-                ctx.font = "28px serif";
+                ctx.font = "23px serif";
                 ctx.fillText("Matematyczna",20,100);
                 ctx.fillText("Informatyczna",220,100);
-                ctx.fillText("Fizyczna",40,300);
-                ctx.fillText("Architektoniczna",205,300);
+                ctx.fillText("Fizyczna",20,300);
+                ctx.fillText("Architektoniczna",220,300);
+                ctx.font ="9px serif";
+                ctx.fillStyle = "#000"
+                ctx.fillText("Kreatywność",330,192);
+                ctx.fillText("Życie",205,25)
                 
                 var circle = new Path2D();
                 circle.arc(horizontal*20+200,vertical*20+200, 4, 0, 2 * Math.PI);
